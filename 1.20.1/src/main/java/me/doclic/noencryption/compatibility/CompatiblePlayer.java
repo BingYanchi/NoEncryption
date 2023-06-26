@@ -26,6 +26,7 @@ public class CompatiblePlayer {
          *     net.minecraft.network.Connection connection -> h
          */
         Field connectionField = nmsPacketListener.getClass().getDeclaredField("h");
+        connectionField.setAccessible(true);
         Object result = connectionField.get(nmsPacketListener);
 
         return ((Connection) result).channel;
